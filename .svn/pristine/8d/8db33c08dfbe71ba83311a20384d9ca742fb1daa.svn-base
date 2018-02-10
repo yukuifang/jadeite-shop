@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "市场",
+  "enablePullDownRefresh": true,
+  "enableReachBottom": true,
+  "backgroundTextStyle": "dark"
+}

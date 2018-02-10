@@ -1,0 +1,44 @@
+<view class="page">
+    <view class="nav-header"> 
+     <view class='search' >
+      <image src='../../image/icons8_Search.png'></image>
+      <input placeholder='搜索想要的' value="{{search_text}}" bindinput='getInputText' focus='true' bindconfirm='checkSearchResult' confirm-type='search'></input>
+     </view>
+     <text class='search_button' bindtap='checkSearchResult'>搜索</text>
+    </view>
+ <!--maain  -->
+  <view class="page__bd">
+  <!-- 热搜 -->
+  <view class='hot_search'>
+  <!--热搜标题  -->
+    <view class='hot_search_title'>
+      <image src='../../image/icons8_Fire_11.png'></image>
+      <text>热门搜索</text>
+    </view>
+    <!--热搜内容  -->
+    <view class='hot_search_content'>
+      <block wx:for="{{hotKeyword}}" wx:key="*this">
+        <text bindtap='itemClick' data-text='{{item}}'>{{item}}</text>
+      </block>
+    </view>
+  </view>
+  <view class='space'></view>
+  <!-- 历史搜索 -->
+  <view class='hot_search'>
+  <!--历史搜索标题  -->
+    <view class='history_search_title'>
+      <view class='history_search_title_left'>
+         <image src='../../image/history_srarch.png'></image>
+         <text>历史搜索</text>
+      </view>
+       <image wx:if='{{history_search.length}}' class='delet' src='../../image/icons8_Trash.png' bindtap='clearHistorySearch'></image>
+    </view>
+    <!--历史搜索内容  -->
+    <view class='hot_search_content'>
+      <block wx:for="{{history_search}}" wx:key="*this">
+        <text bindtap='itemClick' data-text='{{item}}'>{{item}}</text>
+      </block>
+    </view>
+   </view>
+  </view>
+</view>

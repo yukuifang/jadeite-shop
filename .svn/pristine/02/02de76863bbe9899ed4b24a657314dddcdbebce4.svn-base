@@ -1,0 +1,77 @@
+<view class="page">
+    <view class="nav-header"> 
+     <view class='search' bindtap='searchClick'>
+      <image src='../../image/icons8_Search.png'></image>
+      <text>搜索想要的</text>
+     </view>
+     <!--右侧消息  -->
+     <view class='message_body' bindtap='checkInforList'>
+       <view class='message'>
+        <image src='../../image/icons8_Speech_Bubbles.png'></image>
+        <text>消息</text>
+      </view>
+      <text wx:if='{{messgeInfo.noticeCounts+messgeInfo.sysMessageCounts}}' class='message_mount'>{{messgeInfo.noticeCounts+messgeInfo.sysMessageCounts}}</text> 
+     </view>
+    </view>
+ <!--maain  -->
+  <view class="page__bd">
+  <!--轮廓图  -->
+    <view class="banner"> 
+            <swiper class='banner_swiper'
+  autoplay="true" interval="{{2000}}" duration="{{400}}" circular="true" indicator-dots='{{adsImage.length>1}}'> 
+          <block wx:for="{{adsImage}}" wx:key="*this">
+              <swiper-item >
+                 <image class='banner_image' src='{{item}}' mode="widthFix">
+                 </image>
+               </swiper-item>
+         </block> 
+      </swiper> 
+     </view>
+     <!--新品 精选 高货 手镯  -->
+     <view class='type_select'>
+        <block wx:for="{{4}}" wx:key="*this">
+          <view class='type_item' bindtap="typeSelect" data-index="{{index}}">
+            <view class='imagebody'>
+                <image class="{{select_status==index?'image_selected':'image_normal'}}" src='{{select_status==index?image_select[index]:image_normal[index]}}'></image>
+            </view>
+            <text class="{{select_status==index?'title_selected':'title_normal'}}"  >{{type_title[index]}}</text>
+          </view>
+        </block>
+     </view>
+     <view class='list'>
+      <block wx:for="{{goodsList}}" wx:key="*this">
+        <view class='item'>
+          <image mode='aspectFill' bindtap="checkBigPicture" data-goodsdata="{{item}}"  class='photo' src='{{item.goodsLogoPath}}'></image>
+           <image wx:if='{{item.goodsVideoPath}}' class='play'  src='../../image/icons8_Play_Button_Circled.png'></image> 
+          <text class='title' bindtap="checkBigPicture" data-goodsData='{{item}}'>{{item.goodsTitle}}</text>
+          <view class='detail'>
+            <view class='colum'>
+              <text class='price'>¥{{item.tradePrice>=10000?item.tradePrice/10000+"万":item.tradePrice}}</text>
+              <text class='old_price'>¥{{item.resalePrice>=10000?item.resalePrice/10000+"万":item.resalePrice}}</text>
+            </view >
+            <view class='colum1'>
+              <view class='colum colum_heart' bindtap='collectionSelect' data-index='{{index}}'>
+              <image class='heart' src='../../image/icons8_Heart{{item.isCollect==1?"_1":""}}.png'></image>
+              <text>{{item.collectCount}}</text>
+            </view>
+            <view class='colum' bindtap='reSale'>
+               <image class='resale' src='../../image/icons8_iOS_wecha.png'></image>
+              <text>{{item.resaleCount}}</text>
+            </view>
+            </view>
+          </view>
+        </view>
+      </block>
+     </view>
+  </view>
+
+</view>
+
+
+<!--转售  -->
+<!--密码弹框  -->
+  <view class='resaleMongolia mask  {{showResaleMask==true?"active":""}}' catchtouchmove="prevented" bindtap='hidenResaleMask'>
+  
+  <button catchtap='prevented' open-type='contact'>123</button>
+   
+</view>

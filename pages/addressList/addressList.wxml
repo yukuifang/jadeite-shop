@@ -1,0 +1,39 @@
+<view class='page'>
+  <scroll-view scroll-y="true" style='height:{{screenHeight-50}}px'>
+    <block wx:for="{{24}}" wx:key="*this">
+      <view class='item'>
+        <view class='space'></view>
+        <view class='item_top'>
+          <view class='item_top_left'>
+            <view class='name_phone'>
+              <text>陈茵茵</text>
+              <text class='phone'>15915885273</text>
+            </view>
+            <view class='address'>
+              <text>广东省广州市天河区员村二横路</text>
+            </view>
+          </view>
+          <view class='item_top_right'>
+            <image src='../../image/selected.png'></image>
+          </view>
+        </view>
+        <view class='item_bottom'>
+          <view class='edit_delet' bindtap='editAddress'>
+            <image src='../../image/edit.png'></image>
+            <text>编辑</text>
+          </view>
+          <view class='edit_delet'>
+            <image src='../../image/delet.png'></image>
+            <text>删除</text>
+          </view>
+        </view>
+      </view>
+    </block>
+    <view class='footer'>
+      <text>添加</text>
+    </view>
+  </scroll-view>
+  
+
+
+</view>

@@ -1,0 +1,30 @@
+<view class='page'>
+<!--公告  -->
+ <view class='line_top'></view>
+  <view class='section' bindtap='checkSystemInfo' data-type='0'>
+    <view class='left'>
+      <image src='../../image/icons8_Sound.png'></image>
+      <text wx:if='{{messgeInfo.noticeCounts}}' class='dot'>{{messgeInfo.noticeCounts}}</text>
+      <view class='content'>
+        <text class='title'>公告</text>
+        <text>{{messgeInfo.noticeLatestTitle.length>0?messgeInfo.noticeLatestTitle:"暂无消息"}}</text>
+      </view>
+    </view>
+    <text class='time'>{{messgeInfo.noticeIntervalStr.length>0?messgeInfo.noticeIntervalStr:""}}</text>
+  </view>
+  <view class='line'></view>
+  <!--系统消息  -->
+  <view class='section' bindtap='checkSystemInfo' data-type='1'>
+    <view class='left'>
+      <image src='../../image/icons8_Alarm.png'></image>
+      <text wx:if='{{messgeInfo.sysMessageCounts}}' class='dot'>{{messgeInfo.sysMessageCounts}}</text>
+      <view class='content'>
+        <text class='title'>系统消息</text>
+        <text>{{messgeInfo.sysMessageLatestTitle.length>0?messgeInfo.sysMessageLatestTitle:"暂无消息"}}</text>
+      </view>
+    </view>
+    <text class='time'>{{messgeInfo.sysMessageIntervalStr}}</text>
+  </view>
+  
+
+</view>

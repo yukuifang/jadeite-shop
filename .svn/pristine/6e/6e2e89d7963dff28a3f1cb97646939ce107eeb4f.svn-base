@@ -1,0 +1,278 @@
+.content
+{
+  display: flex;
+  flex-direction: column;
+  background: #eeeff3;
+}
+.person_info
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 15px;
+  align-items: center;
+  border-top: 1px solid #eeeff3;
+  background: white;
+}
+.person_info_not
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 15px;
+  align-items: center;
+  height: 80px;
+  color: #000000;
+  font-size: 15px;
+  border-top: 1px solid #eeeff3;
+  background: white;
+
+}
+.person_info_not image
+{
+  width: 9px;
+  height: 12px;
+  margin-left: 20px;
+}
+.person_info image
+{
+  width: 9px;
+  height: 12px;
+  margin-left: 20px;
+}
+.person_info_left
+{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.name_phone
+{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 16px;
+  color: #000000;
+}
+.phone
+{
+  font-size: 15px;
+  color: #1b1b1b;
+}
+.address
+{
+  font-size: 10px;
+  color: #555555;
+  margin-top: 20px;
+}
+.space
+{
+  width: 100%;
+  height: 10px;
+  background: #eeeff3;
+}
+.goods_info_body
+{
+  display: flex;
+  flex-direction: row;
+  padding: 15px;
+  height: 110px;
+  border-bottom: 1px solid #eeeff3;
+  background: white;
+}
+.goods_info_body image
+{
+  width: 110px;
+  height: 110px;
+}
+.goods_info_right
+{
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: space-between;
+  font-size: 15px;
+  color: #1b1b1b;
+}
+.all
+{
+  font-size: 13px;
+  color: #1b1b1b;
+}
+.price
+{
+  font-size: 16px;
+  color: #fa3d3d;
+}
+.service
+{
+  display: flex;
+  flex-direction: column;
+  padding:15px;
+  background: white;
+}
+.service_top
+{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 16px;
+  color: #000000;
+}
+.service_top image
+{
+  width: 23px;
+  height: 23px;
+}
+.service_descr
+{
+  font-size: 13px;
+  color: #999999;
+  margin-top: 10px;
+}
+.goods_price
+{
+  display: flex;
+  flex-direction: row;
+  padding: 15px;
+  border-bottom: 1px solid #eeeff3;
+  font-size: 13px;
+  color: #fa3d3d;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  background: white;
+
+
+}
+.goods_price_title
+{
+  font-size: 16px;
+  color: #000000;
+}
+.service_price
+{
+  padding: 15px;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  box-sizing: border-box;
+  background: white;
+
+}
+.service_price_top
+{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 16px;
+  color: #000000;
+}
+.service_price_top_price
+{
+  font-size: 13px;
+  color: #555555;
+}
+.service_price_rate
+{
+  font-size: 13px;
+  color: #999999;
+  margin-top: 10px;
+}
+.warn
+{
+  background: #eeeff3;
+  font-size: 13px;
+  color: #555555;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px;
+  padding-bottom: 30px;
+}
+.footer
+{
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  height: 70px;
+  background: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 15px;
+  color: #1b1b1b;
+  padding: 0 15px;
+  box-sizing: border-box;
+
+}
+.footer_price
+{
+  font-size: 18px;
+  color: #fa3d3d;
+
+}
+.confirmation
+{
+  font-size: 16px;
+  color: #ffffff;
+  padding: 0px 15px;
+  border-radius: 5px;
+  background: #30c974;
+  height: 40px;
+  line-height: 40px;
+}
+
+.mongolia
+{
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.mask_content
+{
+  background-color: white;
+  width: 556rpx;
+  border-radius: 5px;
+}
+.mask_text
+{
+  font-size: 13px;
+  color: #000000;
+  margin: 20px 15px;
+}
+.mask_footer
+{
+  background: white;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  border-top: 1px solid #eeeff3;
+  align-items: center;
+  color: #24c43e;
+}
+.mask_footer  text
+{
+  width: 50%;
+  font-size: 13px;
+  text-align: center;
+  padding: 5px 0;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.mask_cancel
+{
+  color: #555555;
+  border-right: 1px solid #eeeff3;
+
+
+}

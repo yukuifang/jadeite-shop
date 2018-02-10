@@ -1,0 +1,53 @@
+<view class="page">
+    <view class="nav-header"> 
+     <view class='search' bindtap='searchClick'>
+      <image src='../../image/icons8_Search.png'></image>
+      <text>搜索想要的</text>
+     </view>
+     <!--右侧消息  -->
+     <view class='message_body' bindtap='checkInforList'>
+       <view class='message'>
+        <image src='../../image/icons8_Speech_Bubbles.png'></image>
+        <text>消息</text>
+      </view>
+      <text wx:if='{{messgeInfo.noticeCounts+messgeInfo.sysMessageCounts}}' class='message_mount'>{{messgeInfo.noticeCounts+messgeInfo.sysMessageCounts}}</text> 
+     </view>
+    </view>
+    <!--maain  -->
+    <view class='page__bd' style='height:{{screenHeight-58}}px'>
+      <!--左侧列表  -->
+      <scroll-view class='left' scroll-y="true" >
+          <block wx:for="{{goodsList}}" wx:key="*this">
+           <view class="left_item {{index==selectIndex?'left_item_select':'left_item_normal'}}" bindtap='listSelect' data-index='{{index}}'>
+            <image class='selectImage' src='{{index==selectIndex?"../../image/xuanz-821.png":""}}'></image>
+            <image class='allImage' src='{{index==0?"../../image/icons8_Fire_11.png":""}}'></image>
+            <text>{{item.name}}</text>
+           </view> 
+        </block>
+        </scroll-view>
+      <!-- 右侧列表 -->
+      <scroll-view class='right'scroll-y="true">
+        <view class='banner'>
+          <swiper class='banner_swiper'
+  autoplay="true" interval="{{2000}}" duration="{{400}}" circular="true" indicator-dots='{{adsImage.length>1}}'> 
+            <block wx:for="{{adsImage}}" wx:key="*this">
+                <swiper-item >
+                  <image mode='aspectFill' class='banner_image' src='{{item}}' mode="widthFix">
+                  </image>
+                </swiper-item>
+            </block> 
+          </swiper>  
+      </view>
+      <!--商品列表  -->
+      <view class='goods_body'>
+        <block wx:for="{{goodsData}}" wx:key="*this">
+          <view class='goods_item' bindtap='checkGoodsList' data-index='{{index}}'>
+           <text wx:if='{{index==0}}'>{{item.name}}</text>
+           <image mode='aspectFill' src='{{item.logoPath}}' wx:if='{{index!=0}}'></image>
+           <text class='goods_text' wx:if='{{index!=0}}'>{{item.name}}</text> 
+          </view>
+        </block>
+      </view>
+     </scroll-view>
+    </view>
+</view>

@@ -1,0 +1,368 @@
+page{
+  background-color:white;
+}
+.nav-header{
+  position:fixed;
+  z-index:99;
+  width:100%;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.0);
+  top: 0px;
+  align-items: center;
+  justify-content: center;
+  display: flex;  
+  border: none;
+  border-color: rgba(0, 0, 0, 0);
+}
+.nav-header_normal
+{
+  background-color: rgba(255, 255, 255, 1.0);
+}
+.nav-header_not
+{
+  background-color: rgba(0, 0, 0, 0.0);
+}
+.search
+{
+  width: 524rpx;
+  height: 30px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: #37393e;
+  font-size: 12px;
+}
+.search_normal
+{
+  background: rgba(255, 255, 255, 0.8)
+}
+.search_not
+{
+   background: #f6f6f9; 
+}
+.search image
+{
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+}
+.message_body
+{
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.message
+{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  right: 28rpx;
+  top: 15rpx;
+
+}
+.message image
+{
+  width: 23px;
+  height:22px;
+}
+.message text
+{
+  font-size: 11px;
+  text-align: center;
+  margin-top: 3px;
+}
+.message_normal
+{
+  color: #ffffff;
+}
+.message_not
+{
+  color: #2ec02c;
+}
+.message_mount
+{
+  position: absolute;
+  top: 6rpx;
+  right: 20rpx;
+  font-size: 11px;
+  border-radius: 8px;
+  width: 16px;
+  height: 16px;
+  background: red;
+  color: #ffffff;
+  text-align: center;
+}
+.page__bd{
+  margin-top: 0px;
+}
+.banner{
+    width: 750rpx;
+    margin: 0;
+    padding:0;
+}
+.banner_swiper{
+  width: 750rpx;
+  height: 400rpx; 
+  margin: 0;
+  padding: 0;
+}
+
+.banner_image{
+  width: 100%;  
+}
+.type_select
+{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.type_item
+{
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 12px;
+  color: #2ec02c;
+  padding: 20px 0;
+}
+.imagebody
+{
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.image_selected
+{
+  width: 40px;
+  height: 40px;
+}
+.image_normal
+{
+  width: 23px;
+  height: 23px;
+}
+.type_title
+{
+  margin-top: 5px;
+}
+.title_normal
+{
+  color: #37393e;
+}
+.title_select
+{
+  color: #2ec02c;
+}
+.list
+{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap:wrap;
+  background: #eceff2;
+  box-sizing: border-box;
+  
+}  
+.item
+{
+  width: 50%;
+  background: white;
+  border-radius: 5px; 
+  display: flex;
+  flex-direction: column;
+  font-size:14px;
+	box-sizing:border-box;
+  border-bottom: 15px solid #eceff2;
+  border-left: 5px solid #eceff2;
+  border-right: 5px solid #eceff2;
+  overflow: hidden;
+  position: relative;
+  
+}
+.photo
+{
+  width: 100%;
+  margin: 0;
+  height: 357rpx;
+ 
+}
+.play
+{
+  width: 46rpx;
+  height: 46rpx;
+  top: 290rpx;
+  left: 20rpx;
+  position: absolute;
+  
+}
+.title
+{
+  margin-top: 8px;
+  font-size: 15px;
+  color: #000000;
+  overflow:hidden; 
+  text-overflow:ellipsis;
+  display:-webkit-box; 
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:1; 
+}
+.detail
+{
+  margin-top: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-right: 20px;
+  margin-left: 5px;
+  margin-bottom: 10px;
+}
+.colum
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  height: 35px;
+  font-size: 9px;
+  color: #2a2a2a;
+}
+.colum1
+{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.colum_heart
+{
+  margin-right: 20px;
+}
+.heart
+{
+  width: 17px;
+  height: 15px;
+}
+.resale
+{
+  width: 16px;
+  height: 16px;
+} 
+.price
+{
+  color: #ff5656;
+  font-size: 14px;
+  
+}
+.old_price
+{
+  color: #5c5c5c;
+  font-size: 11px;
+  text-decoration: line-through;
+  
+}
+.resaleMongolia
+{
+  flex: none;
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: rgba(0, 0, 0, 0.3);
+}
+.resaleMongolia_content
+{
+  position: relative;
+}
+.resaleMongolia_content image
+{
+  width: 626rpx;
+  height: 501rpx;
+}
+.resale_button
+{
+  position: absolute;
+  background: rgba(0, 0, 0, 0);
+  bottom: 44rpx;
+  left: 56rpx;
+  width: 515rpx;
+  height: 80rpx;
+}
+/*去掉按钮边框*/
+button[class="resale_button"]::after {
+  border: 0;
+} 
+.contact
+{
+  position: fixed;
+  right: 8px;
+  bottom: 18px;
+  width: 80px;
+  height: 85px;
+}
+.contact image
+{
+  width: 75px;
+  height: 75px;
+}
+.contact text
+{
+  width: 55px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+  background: #ff2121;
+  font-size: 10px;
+  color: #ffffff;
+  border-radius: 5px;
+  position: absolute;
+  left: 12.5px;
+  top: 60px;
+
+}
+.tint
+{
+  position: fixed;
+  right: 8px;
+  bottom: 45px;
+  width: 145px;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+  background: #9eea6a;
+  opacity: 0;
+  color: black;
+  font-size: 13px;
+  border-radius: 5px;
+
+}
+.contact_button
+{
+  position: fixed;
+  right: 8px;
+  bottom: 18px;
+  width: 80px;
+  height: 85px;
+  background: rgba(0, 0, 0, 0);
+}
+/*去掉按钮边框*/
+button[class="contact_button"]::after {
+  border: 0;
+} 
+.go_top
+{
+  position: fixed;
+  right: 25px;
+  bottom: 100px;
+  width: 43px;
+  height: 43px;
+  /* background: yellow; */
+}
+
+

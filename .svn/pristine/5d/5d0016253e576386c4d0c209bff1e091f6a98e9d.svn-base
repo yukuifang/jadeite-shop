@@ -1,0 +1,15 @@
+<view class='page'>
+  <view class='space'></view>
+  <block wx:for="{{listData}}" wx:key="*this">
+      <view class='section' bindtap='checkDetail' data-index='{{index}}'>
+          <image src='{{item.logoPath}}'></image>
+        <view class='content'>
+          <text class='title'>{{item.title}}</text>
+          <text class='time'>{{item.createTime}}</text>
+          <text class='detail'>{{item.content}}</text>
+        </view>
+      </view>
+      
+
+    </block>
+</view>

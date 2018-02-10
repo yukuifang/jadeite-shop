@@ -1,0 +1,108 @@
+<view class="page">
+    <!--搜索类型  -->
+    <view class='search_type'>
+      <view class='search_type_section' bindtap='leftClick'>
+        <text class='{{showMaskLeft?"type_select":"type_normal"}}'>{{firsrClassifyList[firstClassifyIndex].name}}</text>
+        <image src='../../image/{{showMaskLeft?"upper":"down"}}.png'></image>
+      </view>
+       <view class='search_type_section' bindtap='centerClick'>
+       <text class='{{showMaskCenter?"type_select":"type_normal"}}'>{{sortTitle[sortStatus]}}</text>
+        <image src='../../image/{{showMaskCenter?"upper":"down"}}.png'></image>
+       </view>
+     <view class='search_type_section' bindtap='rightClick'>
+      <text  class='{{showMaskRight?"type_select":"type_normal"}}'>筛选</text>
+        <image src='../../image/{{showMaskRight?"upper":"down"}}.png'></image>
+     </view>
+    </view>
+ <!--maain  -->
+  <view class="page__bd">
+    <view class='list'>
+      <block wx:for="{{goodsData}}" wx:key="*this">
+        <view class='item'>
+          <image mode='aspectFill' bindtap="checkBigPicture" class='photo' src='{{item.goodsLogoPath}}' data-goodsdata='{{item}}'></image>
+           <image wx:if='{{item.goodsVideoPath}}' class='play'  src='../../image/icons8_Play_Button_Circled.png'></image> 
+          <text class='title' bindtap="checkBigPicture"  src='{{item.goodsLogoPath}}' data-goodsdata='{{item}}'>{{item.goodsTitle}}</text>
+          <view class='detail'>
+            <view class='colum'>
+              <text class='price'>¥{{item.tradePrice>=10000?item.tradePrice/10000+"万":item.tradePrice}}</text>
+              <text class='old_price'>¥{{item.resalePrice>=10000?item.resalePrice/10000+"万":item.resalePrice}}</text>
+            </view >
+            <view class='colum1'>
+            <view class='colum colum_heart ' bindtap='collectionSelect' data-index='{{index}}'>
+              <image class='heart' src='../../image/icons8_Heart{{item.isCollect==1?"_1":""}}.png'></image>
+              <text>{{item.collectCount}}</text>
+            </view>
+            <view class='colum' bindtap='reSale'>
+               <image class='resale' src='../../image/icons8_iOS_wecha.png'></image>
+              <text>{{item.resaleCount
+}}</text>
+            </view>
+            </view>
+          </view>
+        </view>
+      </block>
+     </view>
+   </view>
+  </view>
+
+  <!-- 全部 -->
+   <view class='mongolia_left mask {{showMaskLeft==true?"active":""}}' catchtouchmove="prevented">
+   <scroll-view class='left_left' scroll-y="true">
+    <block wx:for="{{firsrClassifyList}}" wx:key="*this">
+        <view class='left_left_item {{index==firstClassifyIndex?"left_select":"left_normal"}}' bindtap='firstClassifyClick' data-index='{{index}}'>
+          <text>{{item.name}}</text>
+          <image src='../../image/icons8_Forward.png'></image>
+        </view>
+    </block>
+   </scroll-view>
+   <scroll-view class='left_right' scroll-y="true">
+    <block wx:for="{{secondClasifyList}}" wx:key="*this">
+      <view class='left_right_item' bindtap='secondClassifyClick' data-index='{{index}}'>
+        <text>{{item.name}}</text>
+        <image src='{{index==secondClassifyIndex?"../../image/true.png":""}}'></image>
+      </view>
+    </block>
+   </scroll-view>
+  </view> 
+  <!--综合排序  -->
+   <view class='mongolia_center mask {{showMaskCenter==true?"active":""}}' catchtouchmove="prevented">
+   <view class='center_content'>
+    <block wx:for="{{5}}" wx:key="*this">
+      <view class='center_item {{sortStatus==index?"center_select":"center_normal"}}' bindtap='sortClick' data-index='{{index}}'>
+        <text>{{sortTitle[index]}}</text>
+        <image src='{{sortStatus==index?"../../image/true.png":""}}'></image>
+      </view>
+    </block>
+   </view>
+  </view> 
+
+    <!--筛选  -->
+   <view class='mongolia_right mask {{showMaskRight==true?"active":""}}' catchtouchmove="prevented">
+   <view class='right_content'>
+   <!--圈口  -->
+   <text class='right_title' wx:if='{{firsrClassifyList[firstClassifyIndex].isQuankou==2}}'>圈口</text>
+   <view class='right_section' wx:if='{{firsrClassifyList[firstClassifyIndex].isQuankou==2}}'>
+    <block wx:for="{{7}}" wx:key="*this">
+      <view class='right_item '>
+        <text class='{{circleStatus==index?"right_select":"right_normal"}}' bindtap='circleSelect' data-index='{{index}}'>{{circleTitle[index]}}</text>
+      </view>
+    </block>
+   </view>
+   <!--价格  -->
+    <text class='right_title'>价格</text>
+   <view class='right_section'>
+    <block wx:for="{{6}}" wx:key="*this">
+      <view class='right_item '>
+        <text class='{{priceStatus==index?"right_select":"right_normal"}}' bindtap='priceSelect' data-index='{{index}}'>{{priceTitle[index]}}</text>
+      </view>
+    </block>
+   </view>
+   <view class='right_footer'>
+    <text class='right_footer_left' bindtap='reset'>重置</text>
+    <text class='right_footer_right' bindtap='sureClick'>确认</text>
+   </view>
+
+   </view>
+  </view> 
+
+

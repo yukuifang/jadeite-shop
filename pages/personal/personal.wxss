@@ -1,0 +1,205 @@
+.head_back
+{
+  width: 750rpx;
+  height: 337rpx;
+}
+.header
+{
+  position: relative;
+}
+.headPhoto_body
+{
+  width: 146rpx;
+  height: 146rpx;
+  position: absolute;
+  top: 75rpx;
+  left: 300rpx;
+}
+.headPhoto
+{
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 77rpx;
+  border: 2rpx solid white; 
+}
+
+.name
+{
+  position: absolute;
+  text-align: center;
+  font-size: 13px;
+  color: #ffffff;
+  width: 100%;
+  top: 250rpx;
+}
+.message
+{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  right: 28rpx;
+  top: 15rpx;
+}
+.message image
+{
+  width: 23px;
+  height: 22px;
+}
+.message text
+{
+  font-size: 11px;
+  color: #ffffff;
+  text-align: center;
+  margin-top: 5px;
+}
+.message_mount
+{
+  position: absolute;
+  top: 6rpx;
+  right: 20rpx;
+  font-size: 11px;
+  border-radius: 8px;
+  width: 16px;
+  height: 16px;
+  background: red;
+  color: #ffffff;
+  text-align: center;
+}
+.order
+{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+
+}
+.order_item
+{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 12px 0;
+  color: #3b3b3b;
+  font-size: 13px;
+}
+.arrow
+{
+  width: 8px;
+  height: 17px;
+  margin-right: 23px;
+  margin-left: 10px;
+}
+.lock
+{
+  width: 20px;
+  height: 22px;
+  margin-left: 23px;
+  margin-right: 12px;
+  margin-top: 7px;
+  margin-bottom: 7px;
+}
+.line
+{
+  margin: 0 10px;
+  height: 1px;
+  background: #f6f6f9;
+}
+.orderType
+{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+.orderType_item
+{
+   display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20%;
+  font-size: 11px;
+  color: #2d2d2d;
+  position: relative;
+}
+.orderType_item image
+{
+  width: 18px;
+  height: 18px;
+  margin-top: 10px;
+
+}
+.orderType_name
+{
+   margin-top: 5px;
+   margin-bottom: 5px;
+
+}
+.mount
+{
+  position: absolute;
+  right: 10px;
+  top: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  background: red;
+  color: white;
+  text-align: center;
+  line-height: 16px;
+  margin-top: 5px;
+}
+.space
+{
+  width: 100%;
+  height: 20px;
+  background: #eeeff3;
+}
+.list
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+.list_left
+{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: #3b3b3b;
+  font-size: 13px;
+  
+}
+.list_left  image
+{
+  width: 18px;
+  height:18px;
+  margin-right: 12px;
+  margin-top: 7px;
+  margin-bottom: 7px;
+}
+.contact
+{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+   background: rgba(0, 0, 0, 0); 
+  border: none;
+}
+/*去掉按钮边框*/
+button[class="contact"]::after {
+  border: 0;
+} 
+
+
+
+
+
+

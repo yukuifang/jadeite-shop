@@ -1,0 +1,134 @@
+page{
+
+background-color:white;
+
+}
+.nav-header{
+  position:fixed;
+  z-index:99;
+  width:100%;
+  height: 58px;
+  background-color: white;
+  top: 0px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  border-top: 1px solid #eeeff3;
+}
+.search
+{
+  width: 524rpx;
+  height: 30px;
+  border-radius: 15px;
+  background: #f6f6f9;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #37393e;
+  font-size: 12px;
+}
+.search image
+{
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+  margin-left: 80px;
+}
+.search input
+{
+  width: 120px;
+}
+.search_button
+{
+  color: #47c546;
+  font-size: 12px;
+   position: absolute;
+   right: 15px; 
+   height: 58px;
+   line-height: 58px;
+  
+}
+.page__bd{
+  margin-top: 58px;
+  margin-right: 0;
+  
+}
+.hot_search
+{
+  display: flex;
+  flex-direction: column;
+  margin: 0 24rpx;
+}
+.hot_search_title
+{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 16px;
+  color: #545454;
+  border-bottom: 1px solid #f6f6f9;
+}
+.hot_search_title image
+{
+  width: 15px;
+  height: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 6px;
+}
+
+.history_search_title
+{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 16px;
+  color: #545454;
+  border-bottom: 1px solid #f6f6f9;
+  justify-content: space-between;
+}
+.history_search_title_left
+{
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}
+.history_search_title image
+{
+  width: 15px;
+  height: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 6px;
+}
+.delet
+{
+  margin-right: 0;
+}
+.hot_search_content
+{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  
+}
+.hot_search_content text
+{
+  width: 140rpx;
+  height: 70rpx;
+  margin-right: 16rpx;
+  border: 1px solid #eeeff3;
+  font-size: 12px;
+  color: #545454;
+  margin-top: 12px;
+  border-radius: 5px;
+  text-align: center;
+  line-height: 70rpx;
+}
+.space
+{
+  width: 100%;
+  height: 20px;
+  background: #eeeff3;
+  margin-top: 20px;
+}

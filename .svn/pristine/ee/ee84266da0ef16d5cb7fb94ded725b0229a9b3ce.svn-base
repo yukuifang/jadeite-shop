@@ -1,0 +1,61 @@
+{
+  "pages":[
+    "pages/market/market",
+    "pages/classify/classify",
+    "pages/personal/personal",
+    "pages/goodsBigPicture/goodsBigPicture",
+    "pages/goodsDetail/goodsDetail",
+    "pages/search/search",
+    "pages/orderList/orderList",
+    "pages/orderDetail/orderDetail",
+    "pages/checkLogistics/checkLogistics",
+    "pages/addressList/addressList",
+    "pages/addAddress/addAddress",
+    "pages/login/login",
+    "pages/systemMessage/systemMessage",
+    "pages/informationList/informationList",
+    "pages/searchResult/searchResult",
+    "pages/paySuccess/paySuccess",
+    "pages/confirmationOrder/confirmationOrder",
+    "pages/webView/webView",
+    "pages/notice/notice",
+    "pages/videoPlay/videoPlay"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle":"black"
+},
+"tabBar": {
+  "color": "#868686",
+  "selectedColor": "#09bb07",
+  "borderStyle": "black",
+  "backgroundColor": "#fff",
+  "list": [
+    {
+      "pagePath": "pages/market/market",
+      "iconPath": "image/icons8_Dog_House_1.png",
+      "selectedIconPath":"image/icons8_Dog_House_1-1.png",
+      "text": "市场"
+    },
+    {
+      "pagePath": "pages/classify/classify",
+      "iconPath": "image/icons8_View_1.png",
+      "selectedIconPath": "image/icons8_View_2.png",
+      "text": "分类"
+    },
+    {
+      "pagePath": "pages/personal/personal",
+      "iconPath": "image/icons8_Customer.png",
+      "selectedIconPath": "image/icons8_Customer_1.png",
+      "text": "个人"
+    }
+  ]
+ },
+ "networkTimeout": {
+  "request": 60000,
+  "downloadFile": 60000
+},
+"debug": false
+}

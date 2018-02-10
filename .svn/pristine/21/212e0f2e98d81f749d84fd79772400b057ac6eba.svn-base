@@ -1,0 +1,159 @@
+.header
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.header image
+{
+  width: 45px;
+  height: 45px;
+  margin-top: 30px;
+}
+.header_title
+{
+  font-size: 15px;
+  color: #555555;
+  margin-top: 15px;
+}
+.check_order
+{
+  font-size: 15px;
+  color: #24c43e;
+  border: 1px solid #24c43e;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+.guess
+{
+  width: 100%;
+  height: 44px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background: #eeeff3;
+}
+.line
+{
+  width: 120px;
+  height: 1px;
+  background: #c1c1c1;
+}
+.guess text
+{
+  color: #c1c1c1;
+  font-size: 15px;
+  padding: 0 10px;
+}
+.list
+{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap:wrap;
+  background: #eceff2;
+  box-sizing: border-box;
+  
+}  
+.item
+{
+  width: 50%;
+  background: white;
+  border-radius: 5px; 
+  display: flex;
+  flex-direction: column;
+  font-size:14px;
+	box-sizing:border-box;
+  border-bottom: 15px solid #eceff2;
+  border-left: 5px solid #eceff2;
+  border-right: 5px solid #eceff2;
+	flex:auto;
+  overflow: hidden;
+  position: relative;
+  
+}
+.photo
+{
+  width: 100%;
+  margin: 0;
+  height: 357rpx;
+ 
+}
+.play
+{
+  width: 46rpx;
+  height: 46rpx;
+  top: 290rpx;
+  left: 20rpx;
+  position: absolute;
+  
+}
+.title
+{
+  margin-top: 8px;
+  font-size: 15px;
+  color: #000000;
+  overflow:hidden; 
+  text-overflow:ellipsis;
+  display:-webkit-box; 
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:1; 
+}
+.detail
+{
+  margin-top: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-right: 20px;
+  margin-left: 5px;
+  margin-bottom: 10px;
+}
+.colum
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  height: 35px;
+  font-size: 9px;
+  color: #2a2a2a;
+}
+.colum1
+{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.colum_heart
+{
+  margin-right: 20px;
+}
+.heart
+{
+  width: 17px;
+  height: 15px;
+}
+.resale
+{
+  width: 16px;
+  height: 16px;
+}
+.price
+{
+  color: #ff5656;
+  font-size: 14px;
+  
+}
+.old_price
+{
+  color: #5c5c5c;
+  font-size: 11px;
+  text-decoration: line-through;
+  
+}

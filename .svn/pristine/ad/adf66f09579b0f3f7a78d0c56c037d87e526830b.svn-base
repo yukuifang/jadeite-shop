@@ -1,0 +1,88 @@
+<view class="page">
+    <view class='nav-header {{isTop?"nav-header_not":"nav-header_normal"}}'> 
+     <view class='search {{isTop?"search_normal":"search_not"}}' bindtap='searchClick'>
+      <image src='../../image/icons8_Search.png'></image>
+      <text>搜索想要的</text>
+     </view>
+     <!--右侧消息  -->
+     <view class='message_body' bindtap='checkInforList'>
+       <view class='message'>
+        <image wx:if='{{isTop}}' src='../../image/icons8_Speech_Bubble.png'></image>
+        <image wx:else src='../../image/information_green.png'></image>
+        <text class='{{isTop?"message_normal":"message_not"}}'>消息</text>
+      </view>
+      <text wx:if='{{messgeInfo.noticeCounts+messgeInfo.sysMessageCounts}}' class='message_mount'>{{messgeInfo.noticeCounts+messgeInfo.sysMessageCounts}}</text> 
+     </view>
+    </view>
+ <!--maain  -->
+  <view class="page__bd">
+  <!--轮廓图  -->
+    <view class="banner"> 
+            <swiper class='banner_swiper'
+  autoplay="true" interval="{{2000}}" duration="{{400}}" circular="true" indicator-dots='{{adsImage.length>1}}'> 
+          <block wx:for="{{adsImage}}" wx:key="*this">
+              <swiper-item >
+                 <image class='banner_image' src='{{item}}' mode="widthFix">
+                 </image>
+               </swiper-item>
+         </block> 
+      </swiper> 
+     </view>
+     <!--新品 精选 高货 手镯  -->
+     <view class='type_select'>
+        <block wx:for="{{4}}" wx:key="*this">
+          <view class='type_item' bindtap="typeSelect" data-index="{{index}}">
+            <view class='imagebody'>
+                <image class="{{select_status==index?'image_selected':'image_normal'}}" src='{{select_status==index?image_select[index]:image_normal[index]}}'></image>
+            </view>
+            <text class="{{select_status==index?'title_selected':'title_normal'}}"  >{{type_title[index]}}</text>
+          </view>
+        </block>
+     </view>
+     <view class='list'>
+      <block wx:for="{{goodsList}}" wx:key="*this">
+        <view class='item'>
+          <image mode='aspectFill' bindtap="checkBigPicture" data-goodsdata="{{item}}"  class='photo' src='{{item.goodsLogoPath}}'></image>
+           <image wx:if='{{item.goodsVideoPath}}' class='play'  src='../../image/icons8_Play_Button_Circled.png'></image> 
+          <text class='title' bindtap="checkBigPicture" data-goodsData='{{item}}'>{{item.goodsTitle}}</text>
+          <view class='detail'>
+            <view class='colum'>
+              <text class='price'>¥{{item.tradePrice>=10000?item.tradePrice/10000+"万":item.tradePrice}}</text>
+              <text class='old_price'>¥{{item.resalePrice>=10000?item.resalePrice/10000+"万":item.resalePrice}}</text>
+            </view >
+            <view class='colum1'>
+              <view class='colum colum_heart' bindtap='collectionSelect' data-index='{{index}}'>
+              <image class='heart' src='../../image/icons8_Heart{{item.isCollect==1?"_1":""}}.png'></image>
+              <text>{{item.collectCount}}</text>
+            </view>
+            <view class='colum' bindtap='reSale'>
+               <image class='resale' src='../../image/icons8_iOS_wecha.png'></image>
+              <text>{{item.resaleCount}}</text>
+            </view>
+            </view>
+          </view>
+        </view>
+      </block>
+     </view>
+  </view>
+
+</view>
+
+<!--转售弹框  -->
+   <view class='resaleMongolia mask  {{showResaleMask==true?"active":""}}' catchtouchmove="prevented" bindtap='hidenResaleMask'>
+   <view class='resaleMongolia_content' catchtap='prevented'>
+    <image class='' src='../../image/resale.png'></image>
+    <button bindtap='hidenResaleMask' class='resale_button' open-type='contact' hover-class='none'></button>
+   </view>
+</view> 
+
+<!--悬浮联系客服按钮  -->
+  <view class='contact'>
+      <image  src='../../image/kefu.png'></image>
+      <text>点我有惊喜</text>
+  </view>
+  <button hover-class='none'  class='contact_button' open-type='contact'></button>
+<text animation="{{animationData}}" class='tint'>已为您分配专属顾问！</text>
+
+<!--回到顶部  -->
+<image wx:if='{{showGoTop}}' bindtap='goTop' class='go_top' src='../../image/up.png'></image>

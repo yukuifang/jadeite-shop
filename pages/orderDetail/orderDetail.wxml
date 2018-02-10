@@ -1,0 +1,146 @@
+<view class='page' wx:if='{{orderData.deliveryName}}'>
+ <scroll-view class='right'scroll-y="true" style='height:{{screenHeight-49}}px;'>
+  <view class='order_status' wx:if='{{orderStatus!=5}}'>
+    <image src='../../image/{{orderIcon[orderStatus]}}'></image>
+    <text>{{orderTitle[orderStatus]}}</text>
+  </view>
+  <view class='space'></view>
+  <!--配送地址  -->
+   <view class='distribution_address'> 
+    <text class='head_text'>配送地址</text>
+     <view class='address_item'>
+      <text class='address_item_left'>收货人</text>
+      <text>{{orderData.deliveryName}}</text>
+    </view>
+    <view class='address_item'>
+      <text class='address_item_left'>收货地址</text>
+      <text class='address_item_right'>{{orderData.deliveryAddress}}</text>
+     </view>   
+     <view class='address_item'>
+      <text class='address_item_left'>联系电话</text>
+      <text>{{orderData.deliveryPhone}}</text>
+     </view> 
+    </view> 
+    <view class='space'></view> 
+  <!--物流信息  -->
+    <view class='logistics_info' wx:if='{{orderStatus==3||orderStatus==4||orderStatus==5}}'>
+      <text class='head_text'>物流信息</text>
+      <view class='logistics_body' bindtap='checkLogistics'>
+        <view class='logistics_left_body'>
+          <view class='logistics_left'>
+            <view class='logistics_dot'></view>
+            <view class='logistics_line'></view>
+          </view>
+          <view class='logistics_right'>
+            <text>{{orderData.deliveryInfoList[0].remark}}</text>
+            <text class='logistics_time'>{{orderData.deliveryInfoList[0].acceptTime}}</text>
+          </view>
+        </view>
+        <image wx:if='{{hasLogistics}}' class='arrow' src='../../image/icons8_Forward.png'></image>
+      </view>
+    </view>
+    <view class='space'></view>
+    <!--商品信息  -->
+    <view class='goods_info'>
+      <text class='head_text'>商品信息</text>
+      <view class='goods_info_body' bindtap='checkBigPicture'>
+        <view>
+          <image mode='aspectFill' src='{{orderData.logoPath}}'></image>
+        </view>
+        <view class='goods_info_right'>
+          <text>{{orderData.title}}</text>
+          <view class='goods_info_bottom'>
+            <text>¥{{orderData.tradePrice}}</text>
+            <text wx:if='{{orderStatus==2||orderStatus==3||orderStatus==4}}' class='apply_return' catchtap='applyReturn'>申请退货</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='space'></view>
+    <!--订单信息  -->
+    <view class='order_info'>
+      <text class='head_text'>订单信息</text>
+      <view class='order_info_item'>
+        <text class='order_info_item_left'>订单时间</text>
+        <text>{{orderData.createTime}}</text>
+      </view>
+      <view class='order_info_item'>
+        <text class='order_info_item_left'>订单号</text>
+        <text>{{orderData.orderNo}}</text>
+      </view>
+      <view class='order_info_item'>
+        <text class='order_info_item_left'>订单状态</text>
+        <text class='order_info_status'>{{orderData.orderStatusName}}</text>
+      </view>
+      <view class='order_info_item'>
+        <text class='order_info_item_left'>商品价格</text>
+        <text>¥{{orderData.tradePrice}}</text>
+      </view>
+      <view class='order_info_item'>
+        <text class='order_info_item_left'>购翠宝服务费</text>
+        <text>¥{{orderData.servicePrice}}</text>
+      </view>
+      <view class='order_info_item'>
+        <text class='order_info_item_left'>总价</text>
+        <text class='order_info_allMoney'>¥{{orderData.payAmount}}</text>
+      </view>
+    </view>
+    <view class='space'></view>
+    <!--支付信息  -->
+    <view class='order_info' wx:if='{{orderStatus!=0&&orderStatus!=1}}'>
+       <text class='head_text'>支付信息</text>
+       <view class='order_info_item'>
+        <text class='order_info_item_left'>支付时间</text>
+        <text>{{orderData.payTime}}</text>
+       </view>
+       <view class='order_info_item'>
+        <text class='order_info_item_left'>支付金额</text>
+        <text class='order_info_allMoney'>¥{{orderData.payAmount}}</text>
+       </view>
+       <view class='order_info_item'>
+        <text class='order_info_item_left'>支付方式</text>
+        <text>{{orderData.payMethod}}</text>
+       </view>
+    </view>
+    <view class='space'></view>
+  </scroll-view>
+  <!--底部  -->
+  <!--待收货  -->
+  <view class='footer' wx:if='{{orderStatus==3}}'>
+    <view class='service'>
+      <image src='../../image/service.png'></image>
+      <text>售后服务</text>
+      <button hover-class='none' open-type='contact'  class='service_contact' session-from='from_after_sale'></button> 
+    </view>
+    <text class='sureGet' bindtap='sureGet'>确认收货</text>
+  </view>
+  <!--除去待收货与待付款  -->
+  <view class='footer1' wx:elif='{{orderStatus==0||orderStatus==2||orderStatus==4||orderStatus==5}}'>
+    <image src='../../image/serviceWhite.png'></image>
+    <text>售后服务</text>
+    <button hover-class='none' open-type='contact'  class='service_contact' session-from='from_after_sale' ></button>
+  </view>
+  <!--待付款  -->
+  <view class='footer' wx:elif='{{orderStatus==1}}'>
+    <view class='service'>
+      <image src='../../image/service.png'></image>
+      <text>售后服务</text>
+      <button hover-class='none' open-type='contact'  class='service_contact' session-from='from_after_sale'></button> 
+    </view>
+    <view class='cancel_pay'>
+      <text class='cancelOrder' bindtap='cancelOrder'>取消订单</text>
+      <text class='orderPay' bindtap='payOrder'>付款</text>
+    </view>
+  </view>
+  <!--申请退货  -->
+  <view class='mongolia mask {{showMask==true?"active":""}}' catchtouchmove="prevented">
+    <view class='apply_return_body'>
+      <text class='apply_return_title'>申请售后</text>
+       <textarea placeholder="请填写您的退货原因" placeholder-style="color:#999999;font-size:13px;" bindinput='getTextareaText'/>
+       <view class='apply_return_footer'>
+        <text class='cancel' bindtap='cancelClick'>取消</text>
+        <text class='commit' bindtap='commit'>提交</text>
+       </view>
+    </view>
+  </view> 
+</view>

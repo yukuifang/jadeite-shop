@@ -1,0 +1,347 @@
+var util = require('../../utils/util.js');
+var RequestManager = require('../../utils/RequestHelper.js');
+var common = require('../../utils/common.js');
+const app = getApp()
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    showMaskLeft:false,
+    showMaskCenter: false,
+    showMaskRight: false,
+    sortTitle:["综合排序","最新商品","收藏最多","价格从低到高","价格从高到低"],
+    sortStatus:0,
+    circleTitle:["不限","52以下","52-54","54-56","56-58","58-60","60以上"],
+    circleStatus:0,
+    priceTitle:["不限","5000以下","5000-1万","1万-5万","5万-10万","10万以上"],
+    priceStatus:0,
+    firsrClassifyList:[],
+    secondClassifyList: [],
+    firstClassifyIndex:1,
+    secondClassifyIndex: 1,
+    title:null,
+    goodsData:[],
+    showResaleMask:false
+    
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+  
+    this.setData({
+      firstClassifyIndex: options.firstIndex,
+      secondClassifyIndex: options.secondIndex,
+      title: options.title
+    })
+    this.getClassifyListData();
+    
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+    
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+    
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+    
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+    
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+    
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+    
+  },
+  // 防止冒泡
+  prevented:function(){},
+  // 全部按钮点击
+  leftClick:function(){
+    this.setData({
+      showMaskLeft: !this.data.showMaskLeft,
+      showMaskCenter: false,
+      showMaskRight: false,
+    })
+    if (!this.data.showMaskLeft)
+    {
+      this.searchGoods()
+    }
+
+  },
+  // 综合按钮排序点击
+  centerClick: function () {
+    this.setData({
+      showMaskLeft: false,
+      showMaskCenter: !this.data.showMaskCenter,
+      showMaskRight: false,
+    })
+    if (!this.data.showMaskCenter) {
+      this.searchGoods()
+    }
+   },
+  // 筛选按钮点击
+  rightClick: function () {
+    this.setData({
+      showMaskLeft: false,
+      showMaskCenter: false,
+      showMaskRight: !this.data.showMaskRight,
+    })
+    if (!this.data.showMaskRight) {
+      this.searchGoods()
+    }
+   },
+  //  综合排序列表点击
+  sortClick: function (event){
+    this.setData({
+      sortStatus: event.currentTarget.dataset.index,
+      showMaskCenter:false,
+    })
+    this.searchGoods()
+  },
+  // 圈口选择
+  circleSelect:function(event){
+    this.setData({
+      circleStatus: event.currentTarget.dataset.index
+    })
+  },
+  // 价格选择
+  priceSelect: function (event) {
+    this.setData({
+      priceStatus: event.currentTarget.dataset.index
+    })
+  },
+  // 筛选处重置按钮点击事件
+  reset:function(){
+    this.setData({
+      circleStatus: 0,
+      priceStatus: 0,
+    })
+  },
+  // 筛选处确定按钮点击事件
+  sureClick:function(){
+    this.setData({
+      showMaskRight:false,
+    })
+    this.searchGoods()
+  },
+  // 获取分类列表数据
+  getClassifyListData: function () {
+    var _this = this;
+    common.classifyListData(function (res) {
+     
+      var first = [{ name: "全部" }];
+      _this.setData({
+        firsrClassifyList: first.concat(res),
+      });
+      _this.setSecondClassify();
+      _this.searchGoods();
+
+    })
+  },
+    //初始化二级分类
+  setSecondClassify:function() {
+    var array = [{ name: "全部" }]
+    var secondClasifyList = array.concat(this.data.firsrClassifyList[this.data.firstClassifyIndex].childClassifyList)
+    if (this.data.firstClassifyIndex==0)
+    {
+      secondClasifyList = [];
+    }
+    this.setData({
+      secondClasifyList: secondClasifyList
+
+    })
+  },
+  // 一级分类被点击
+  firstClassifyClick:function(event){
+    this.setData({
+      firstClassifyIndex: event.currentTarget.dataset.index,
+      secondClassifyIndex:0
+    })
+    this.setSecondClassify();
+    if (event.currentTarget.dataset.index ==0)
+    {
+      this.setData({
+        showMaskLeft:false
+      })
+      this.searchGoods()
+    }
+  },
+  // 二级分类被点击
+  secondClassifyClick: function (event) { 
+    this.setData({
+      secondClassifyIndex: event.currentTarget.dataset.index,
+      showMaskLeft: false
+    })
+    this.searchGoods()
+  },
+  //  搜索商品
+  searchGoods: function () {
+    var _this = this;
+    var param = {}
+    param.sort = this.data.sortStatus+1;
+    // 有圈口
+    if (this.data.firsrClassifyList[this.data.firstClassifyIndex].isQuankou == 2)
+    {
+      if (this.data.circleStatus>0)
+      {
+        if (this.data.circleStatus == 1)
+        {
+          param.endQuankou = 52;
+        } else if (this.data.circleStatus == 6)
+        {
+          param.statrQuankou = 60;
+        }else
+        {
+          param.statrQuankou = 52 + 2 * (this.data.circleStatus-2)
+          param.endQuankou = param.statrQuankou+2
+        }
+      }
+    }
+    // 价格参数
+    if (this.data.priceStatus>0)
+    {
+      if (this.data.priceStatus==1)
+      {
+        param.endPrice = 5000
+      } else if (this.data.priceStatus ==5)
+      {
+        param.statrPrice = 100000
+      }else if (this.data.priceStatus == 2)
+      {
+        param.statrPrice = 5000
+        param.endPrice = 10000
+      } else if (this.data.priceStatus == 3) {
+        param.statrPrice = 10000
+        param.endPrice = 50000
+      } else if (this.data.priceStatus == 4) {
+        param.statrPrice = 50000
+        param.endPrice = 100000
+      }
+    }
+    // title
+    if (this.data.title)
+    {
+      param.title = this.data.title
+    }
+    if (this.data.firstClassifyIndex>0)
+    {
+      //一级分类id
+      param.oneClassify = this.data.firsrClassifyList[this.data.firstClassifyIndex].classifyId
+      // 二级分类id
+      if (this.data.secondClassifyIndex>0)
+      {
+        param.twoClassify = this.data.secondClasifyList[this.data.secondClassifyIndex].classifyId
+     
+          
+      }
+    }
+    if (util.checkLanding()) {
+      param.uid = app.globalData.login.uid
+    }
+      console.log(param);
+    RequestManager.RequestGet('goods/listGoods.do', param, function (res) {
+      console.log(res)
+      _this.setData({
+        goodsData:res
+      })
+
+      if(_this.data.title &&res.length)
+      {
+        _this.setSearchList();
+      }
+    })
+  },
+  // 缓存搜索历史
+  setSearchList:function(){
+    try {
+      var array =[]
+      var list = wx.getStorageSync('history_search')
+      if (list.length) {
+        for (var i=0; i < list.length;i++)
+        {
+       
+          if (list[i] == this.data.title)
+          {
+           return
+          }
+        }
+        list.push(this.data.title)
+        array = list
+       
+      }else
+      {
+        array.push(this.data.title)
+      }
+      wx.setStorage({
+        key: "history_search",
+        data: array
+      })
+    } catch (e) {
+      
+    }
+  },
+  // 收藏按钮点击
+  collectionSelect: function (event) {
+    var _this = this
+    common.collectGoods(this.data.goodsData, event.currentTarget.dataset.index, function (res) {
+      _this.setData({
+        goodsData: res
+      })
+    })
+
+  },
+  // 转售按钮点击事件
+  reSale: function () {
+    this.setData({
+      showResaleMask:true
+    })
+  },
+  // 查看商品详情
+  checkBigPicture: function (event) {
+    wx.navigateTo({
+      url: '../goodsDetail/goodsDetail?goodsId=' + event.currentTarget.dataset.goodsdata.goodsId
+    })
+  },
+  hidenResaleMask: function () {
+    this.setData({
+      showResaleMask: false
+    })
+  }
+
+})

@@ -1,0 +1,156 @@
+page{
+
+background-color:white;
+
+}
+.head
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 18px;
+  color: #046836;
+  text-align: center;
+} 
+.head image
+{
+  width: 100px;
+  height: 105px;
+  margin-top: 26px;
+}
+.head text
+{
+  margin-top: 15px;
+}
+.content
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 22px;
+}
+.section
+{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 290px;
+  height: 50px;
+  border: 1px solid #f6f6f9;
+  border-radius: 25px;
+  margin-top: 22px;
+  background: white;
+}
+.left
+{
+  width: 18px;
+  height: 18px;
+  margin-left: 14px;
+  margin-right: 14px;
+}
+.phone_input
+{
+  width: 200px;
+  font-size: 15px;
+}
+.placeholder_class
+{
+  color: #979797;
+}
+.cancel
+{
+  width: 16px;
+  height: 16px;
+  margin-right: 12px;
+  margin-left: 12px;
+}
+.identify_input
+{
+  width: 140px;
+  font-size: 15px;
+}
+.get
+{
+  width: 65px;
+  height: 35px;
+  line-height: 35px;
+  border: 1px solid #24c43e;
+  color: #24c43e;
+  font-size: 12px;
+  border-radius: 5px;
+  text-align: center;
+  margin-left: 19px;
+}
+.get_not
+{
+  width: 65px;
+  height: 35px;
+  line-height: 35px;
+  border: 1px solid #24c43e;
+  color: #979797;
+  font-size: 12px;
+  border-radius: 5px;
+  text-align: center;
+  margin-left: 19px;
+}
+.land_button
+{
+  width: 290px;
+  height: 50px;
+  line-height: 50px;
+  background: #24c43e;
+  font-size: 15px;
+  text-align: center;
+  border-radius: 25px;
+  color: #ffffff;
+  margin-top: 40px;
+}
+.mongolia
+{
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.mask_content
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:center;
+  background: white;
+  width: 90%; 
+  border-radius: 10px;
+  
+}
+.section1
+{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 250px;
+  height: 50px;
+  border: 1px solid #f6f6f9;
+  border-radius: 25px;
+  margin-top: 22px;
+  background: white;
+}
+.identify_input1
+{
+  /* width: 140px; */
+  font-size: 15px;
+}
+.sure_button
+{
+  width: 250px;
+  height: 50px;
+  line-height: 50px;
+  background: #24c43e;
+  font-size: 15px;
+  text-align: center;
+  border-radius: 25px;
+  color: #ffffff;
+  margin-top: 40px;
+  margin-bottom: 22px;
+}

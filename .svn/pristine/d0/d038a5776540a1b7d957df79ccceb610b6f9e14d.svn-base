@@ -1,0 +1,116 @@
+.item
+{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.space
+{
+  width: 100%;
+  height: 10px;
+  background: #eeeff3;
+}
+.item_top
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.item_bottom
+{
+  border-top: 1px solid #eeeff3;
+  display: flex;
+  flex-direction: row;
+}
+.item_top_left
+{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-left: 15px;
+
+}
+.name_phone
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 17px;
+  color: #1b1b1b;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+.phone
+{
+  font-size: 15px;
+}
+.address
+{
+  width: 100%;
+  font-size: 13px;
+  color: #555555;
+  margin-bottom: 10px;
+}
+.item_top_right
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.item_top_right image
+{
+  width: 17px;
+  height: 17px;
+  margin: 15px;
+}
+.edit_delet
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: #24c43e;
+  font-size: 13px;
+  width: 50%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-right: 1px solid #eeeff3;
+}
+.edit_delet image
+{
+  width: 10px;
+  height: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 5px;
+
+}
+.footer
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background:white;
+  height: 50px;
+  border-top: 1px solid #eeeff3;
+}
+.footer text
+{
+  height: 40px;
+  line-height: 40px;
+  background: #24c43e;
+  color: white;
+  font-size: 16px;
+  width: 100%;
+  margin: 0 30px;
+  text-align: center;
+  border-radius: 5px;
+
+}

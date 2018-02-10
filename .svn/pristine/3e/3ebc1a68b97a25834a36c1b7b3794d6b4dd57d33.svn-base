@@ -1,0 +1,31 @@
+<view class="page">
+    <view class="nav-header"> 
+      <block wx:for="{{6}}" wx:key="*this">
+        <view class='order_type_item' bindtap='orderTypeChange'data-index='{{index}}'>
+          <text class='{{orderStatus==index?"order_type_select":"order_type_normal"}}'>{{orderType[index]}}</text>
+           <image wx:if='{{orderStatus==index}}' src='../../image/icon-hengxian.png'></image> 
+            <image wx:else src=''></image>
+        </view>
+      </block>
+    </view>
+ <!--maain  -->
+  <view class="page__bd">
+    <block wx:for="{{orderListData}}" wx:key="*this">
+      <view class='order_item'>
+        <view class='order_top'>
+        <text>{{item.createTime}}</text>
+        <text>{{item.orderStatusName}}</text>
+        </view>
+        <view class='order_content' bindtap='checkOrderDetail' data-index='{{index}}'>
+          <view>
+            <image mode='aspectFill'  src='{{item.logoPath}}'></image>
+          </view>
+          <text>{{item.title}}</text>
+        </view>
+      </view>
+      <view class='space'></view>
+    </block>
+ 
+  </view>
+
+</view>

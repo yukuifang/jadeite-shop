@@ -1,0 +1,117 @@
+<view class="page body">
+<!--头部视图  -->
+  <view class='header'>
+  <!--头像  -->
+    <view class='headPhoto_body'>
+      <image wx:if='{{userInfo.avatarUrl}}' class='headPhoto' src='{{userInfo.avatarUrl}}'></image>
+       <image wx:else class='headPhoto' src='../../image/head_icon.png'></image>
+    </view>
+    <!--昵称  -->
+    <text class='name'>{{userInfo.nickName}}</text>
+    <!--消息  -->
+    <view class='message' bindtap='checkInforList'>
+      <image src='../../image/icons8_Speech_Bubble.png'></image>
+      <text>消息</text>
+    </view>
+    <text wx:if='{{messgeInfo.noticeCounts+messgeInfo.sysMessageCounts}}' class='message_mount'>{{messgeInfo.noticeCounts+messgeInfo.sysMessageCounts}}</text>
+    <image class='head_back' src='../../image/icon-bejing.png'></image>
+  </view>
+  <!--主视图  -->
+  <view class='body'>
+    <view class='order' bindtap="checkOrderList" data-type='0'>
+      <view class='order_item'>
+        <image class='lock' src='../../image/icons8_Google_Forms.png'></image>
+      <text>我的订单</text>
+      </view>
+      <view class='order_item'>
+        <text>{{orderWaitReadData.allCount}}</text>
+      <image class='arrow' src='../../image/icons8_Forward.png'></image>
+      </view>
+    </view>
+    <view class='line'></view>
+    <!--订单类型  -->
+    <view class='orderType'>
+    <!--待付款  -->
+      <view class='orderType_item' bindtap="checkOrderList" data-type='1'>
+        <image src='../../image/icons8_daifukuan.png'></image>
+        <text class='orderType_name'>待付款</text>
+        <text wx:if='{{orderWaitReadData.waitPayCount}}' class='mount'>{{orderWaitReadData.waitPayCount}}</text>
+      </view>
+      <!--待发发货  -->
+      <view class='orderType_item' bindtap="checkOrderList" data-type='2'>
+        <image src='../../image/icons8_daishouhuo.png'></image>
+        <text class='orderType_name'>待发货</text>
+        <text wx:if='{{orderWaitReadData.payedCount}}' class='mount'>{{orderWaitReadData.payedCount}}</text>
+      </view>
+      <!--待收货  -->
+      <view class='orderType_item' bindtap="checkOrderList" data-type='3'>
+        <image src='../../image/icons8_car.png'></image>
+        <text class='orderType_name'>待收货</text>
+        <text wx:if='{{orderWaitReadData.waitPickupGoodsCount}}' class='mount'>{{orderWaitReadData.waitPickupGoodsCount}}</text>
+      </view>
+      <!--交易成功  -->
+      <view class='orderType_item' bindtap="checkOrderList" data-type='4'>
+        <image src='../../image/icons8_Handshake_Heart.png'></image>
+        <text class='orderType_name'>交易成功</text>
+        <text wx:if='{{orderWaitReadData.tarnferSuccCount}}' class='mount'>{{orderWaitReadData.tarnferSuccCount}}</text>
+      </view>
+      <!--退货  -->
+      <view class='orderType_item' bindtap="checkOrderList" data-type='5'>
+        <image src='../../image/icons8_Repeat.png'></image>
+        <text class='orderType_name'>退货</text>
+        <text wx:if='{{orderWaitReadData.returnGoodsCount}}' class='mount'>{{orderWaitReadData.returnGoodsCount}}</text>
+      </view>
+    </view>
+    <view class='space'></view>
+    <!--收货地址  -->
+    <view class='list' bindtap="listItemCliclk" data-index='0'>
+      <view class='list_left'>
+        <image src='../../image/icons8_Paper_Plane_1.png'></image>
+        <text>收货地址</text>
+      </view>
+      <image class='arrow' src='../../image/icons8_Forward.png'></image>
+    </view>
+    <view class='line'></view>
+    <!--客服热线  -->
+    <view class='list' bindtap="listItemCliclk" data-index='1'>
+      <view class='list_left'>
+        <image src='../../image/icons8_WhatsApp.png'></image>
+        <text>客服热线</text>
+      </view>
+      <image class='arrow' src='../../image/icons8_Forward.png'></image>
+    </view>
+    <view class='line'></view>
+    <!--在线客服  -->
+    <view class='list' bindtap="listItemCliclk" data-index='2'>
+      <view class='list_left'>
+        <image src='../../image/icons8_technical_support_1.png'></image>
+        <text>在线客服</text>
+      </view>
+      <image class='arrow' src='../../image/icons8_Forward.png'></image>
+      <button hover-class='none'  class='contact'  open-type='contact' session-from='from_common'></button> 
+    </view>
+    <view class='space'></view>
+    <!-- 使用帮助 -->
+    <view class='list' bindtap="listItemCliclk" data-index='3'>
+      <view class='list_left'>
+        <image src='../../image/icons8_Comic_Book.png'></image>
+        <text>使用帮助</text>
+      </view>
+      <image class='arrow' src='../../image/icons8_Forward.png'></image>
+    </view>
+    <view class='line'></view>
+    <!--关于我们  -->
+    <view class='list' bindtap="listItemCliclk" data-index='4'>
+      <view class='list_left'>
+        <image src='../../image/icons8_Customer_we.png'></image>
+        <text>关于我们</text>
+      </view>
+      <image class='arrow' src='../../image/icons8_Forward.png'></image>
+    </view>
+    <view class='space'></view>
+  </view>
+</view>
+
+
+
+

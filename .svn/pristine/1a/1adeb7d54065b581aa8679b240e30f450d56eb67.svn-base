@@ -1,0 +1,37 @@
+/**app.wxss**/ 
+.page {
+  background-color: white;
+  height: 100%;
+  width: 750rpx;
+  /* border-top: 1px solid #eeeff3; */
+}
+page{
+  background-color:#eeeff3;
+}
+/*遮罩  */
+.mask
+{
+  display:none;
+  position:fixed;
+  left:0;
+  top:0;
+  right:0;
+  bottom:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,.2);
+  z-index:11;
+  transition: all 1s ease;
+}
+.mask.active
+{
+  display:flex;
+}
+
+
+
+ /* <block wx:for="{{66}}" wx:key="*this">
+  <view>12445</view>
+ </block>
+<view bindtap="hideCoupon" class='coupon_receive_wrapper {{showCouponFlag==true?"active":""}}' catchtouchmove="prevented">
+<view class='back'>123</view> */

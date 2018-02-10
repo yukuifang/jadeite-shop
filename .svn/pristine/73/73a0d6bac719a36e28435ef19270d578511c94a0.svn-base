@@ -1,0 +1,153 @@
+.space
+{
+  width: 100%;
+  height: 10px;
+  background: #eeeff3;
+}
+.content
+{
+  display: flex;
+  flex-direction: column;
+  margin: 0 15px;
+  background: #eeeff3;
+}
+.name_section
+{
+  height: 49px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #1b1b1b;
+  font-size: 17px;
+  border-bottom: 1px solid #eeeff3;
+  justify-content: space-between;
+  background: white;
+}
+.name_section text
+{
+  margin-right: 10px;
+}
+.name_section input
+{
+  text-align: right;
+  color: #999999;
+ 
+}
+.right
+{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #999999;
+
+}
+.right image
+{
+  width: 9px;
+  height: 17px;
+}
+.detail_section 
+{
+  display: flex;
+  flex-direction: row;
+  color: #1b1b1b;
+  font-size: 17px;
+  background: white;
+}
+.detail_section textarea
+{
+  width: 100%;
+  height: 59px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+.default
+{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #555555;
+  font-size: 13px;
+  background: #eeeff3;
+
+}
+.default image
+{
+  width: 17px;
+  height: 17px;
+  margin-right: 10px;
+  margin-left: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.save
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 16px;
+  color: #ffffff;
+  background: #eeeff3;
+  width: 100%;
+}
+.save text
+{
+   background: #24c43e; 
+   width: 650rpx;
+   height: 50px;
+   line-height: 50px;
+   margin-top: 50px;
+   border-radius: 5px;
+}
+.mongolia
+{
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.place_list
+{
+  background: white;
+  width: 100%;
+  height: 244px;
+  display: flex;
+  flex-direction: column;
+}
+.cancel_sure
+{
+  width: 100%;
+  height: 44px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: #24c43e;
+  font-size: 13px;
+  border-bottom: 1px solid #eeeff3;
+  align-items: center;
+}
+.cancel_sure text
+{
+  padding-left: 15px;
+  padding-right: 15px;
+
+}
+.cancel
+{
+  color: #999999;
+}
+.picker
+{
+  width: 100%;
+  height: 250px;
+}
+.picker_item
+{
+  line-height: 40px;
+  text-align: center;
+}
+.indicator_class
+{
+  height: 40px;
+}

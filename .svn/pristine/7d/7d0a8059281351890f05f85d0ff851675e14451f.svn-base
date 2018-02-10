@@ -1,0 +1,69 @@
+<view class='page'>
+  <scroll-view class='content'scroll-y="true" style='height:{{screenHeight-49}}px'>
+    <!--个人信息  -->
+   <view class='person_info' bindtap='selectAddress' wx:if='{{name}}' bindtap='selectAddress'>
+    <view class='person_info_left'>
+      <view class='name_phone'>
+        <text>{{name}}</text>
+        <text class='phone'>{{phone}}</text>
+      </view>
+      <text class='address'>{{address}}</text>
+    </view>
+    <image src='../../image/icons8_Forward.png'></image>
+  </view>
+  <view wx:else class='person_info_not' bindtap='selectAddress'>
+  <text>请选择收货地址</text>
+    <image src='../../image/icons8_Forward.png'></image>
+  </view>
+  <view class='space'></view>
+  <view class='goods_info_body'>
+        <view>
+          <image mode='aspectFill' src='{{goodsData.goodsLogoPath}}'></image>
+        </view>
+        <view class='goods_info_right'>
+          <text>{{goodsData.goodsTitle}}</text>
+          <text class='all'>宝贝价格：<text class='price'>¥{{goodsData.tradePrice>=10000?goodsData.tradePrice/10000+"万":goodsData.tradePrice}}</text></text>
+        </view>
+      </view>
+       <!--购翠宝服务  -->
+      <view class='service'>
+        <view class='service_top'>
+          <text>选择购翠宝服务</text>
+          <image src='../../image/{{serviceSelect?"selected":"unSelect"}}.png' bindtap='selectServiicePrice'></image>
+        </view>
+        <text class='service_descr'>您购买的宝贝将会发至翡翠货源平台，出具NGSTC证书后在发给您。三天内无条件退货，退货来回运费全部由翡翠货源平台承担。</text>
+      </view>
+      <view class='space'></view>
+      <view class='goods_price'>
+        <text class='goods_price_title'>宝贝价格</text>
+        <text>¥{{goodsData.tradePrice>=10000?goodsData.tradePrice/10000+"万":goodsData.tradePrice}}</text>
+      </view>
+      <!--购翠宝服务费  -->
+      <view class='service_price'>
+        <view class='service_price_top'>
+          <text>购翠宝服务费</text>
+          <text class='service_price_top_price'>¥{{servicePrice}}</text>
+        </view>
+        <text class='service_price_rate'>{{serviceText}}</text>
+      </view>
+      <view class='warn'>
+        <text >由翡翠货源平台提供担保交易，在您确认收货后，卖家才能收到货款，请放心购买</text>
+      </view>
+  </scroll-view>
+  <view class='footer'>
+    <text>合计：<text class='footer_price'>¥{{allMoney}}</text></text>
+    <text class='confirmation' bindtap='sureOrder'>确认下单</text>
+  </view>
+</view>
+<!--购翠宝付费选择弹框  -->
+ <view class='mongolia mask {{showMask==true?"active":""}}' catchtouchmove="prevented">
+       <view class='mask_content'>
+        <view class='mask_text'>
+           <text >取消购买购翠宝服务，翡翠货源平台将不另配证书，且邮费需要您自理。继续购买购翠宝服务吗？</text>
+        </view>
+        <view class='mask_footer'>
+          <text class='mask_cancel' bindtap='cancelPurchase'>不购买</text>
+          <text  bindtap='continuePurchase'>继续购买</text>
+       </view>
+       </view>
+</view>

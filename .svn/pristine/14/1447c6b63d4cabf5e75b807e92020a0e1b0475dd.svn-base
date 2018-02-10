@@ -1,0 +1,3 @@
+ <view class='' >
+   <video class='video' show-play-btn='false' objectFit='contain' autoplay='true' show-progress='false' src='{{goodsVideoPath}}'></video>
+  </view>  

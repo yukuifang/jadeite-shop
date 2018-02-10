@@ -1,0 +1,35 @@
+<view class='page'>
+  <view class='head'>
+    <image src='../../image/land_icon.png'></image>
+    <text>翡翠货源</text>
+    <!-- <text bindtap='getCode'>重新获取code</text> -->
+  </view>
+  <view class='content'>
+    <!--手机号码  -->
+  <view class='section'>
+    <image class='left' src='../../image/mobile.png'></image>
+    <input class='phone_input' placeholder='请输入手机号' type='number' placeholder-class='placeholder_class' value='{{phone}}' bindinput="getPhone"></input>
+    <image class='cancel' src='../../image/cancel.png' bindtap='clearPhone'></image>
+  </view>
+    <!--验证码  -->
+  <view class='section'>
+    <image class='left' src='../../image/identify.png'></image>
+    <input class='identify_input' placeholder='请输短信验证码' placeholder-class='placeholder_class' type='number' bindinput='getMobileCode'></input>
+    <text class='{{canGetIdentify?"get":"get_not"}}' bindtap='sendMobileCode'>{{getText}}</text>
+  </view>
+  <text class='land_button' bindtap='newUserOrNot'>登录</text>
+  </view>
+</view>
+
+<!--密码弹框  -->
+  <view class='mongolia mask {{showMask==true?"active":""}}' catchtouchmove="prevented" bindtap='hidenMask'>
+   <!--设置登录密码  -->
+  <view class='mask_content'  catchtap='prevented'>
+    <view class='section1'>
+    <image class='left' src='../../image/lock.png'></image>
+    <input class='identify_input1' placeholder='请设置密码'  password='true'    placeholder-class='placeholder_class' bindinput='getPassWord'></input>
+  </view>
+  <text class='sure_button' bindtap='sureClick'>确定</text>
+  </view>
+   
+</view>

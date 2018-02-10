@@ -1,0 +1,47 @@
+<view class='page'>
+  <view class='header'>
+  <image src='../../image/paySuccess.png'></image>
+  <text class='header_title'>支付成功，等待商家发货</text>
+  <text class='check_order' bindtap='checkOrder'>查看订单详情</text>
+  </view>
+  <view class='guess'>
+    <view class='line'></view>
+    <text>猜你喜欢</text>
+    <view class='line'></view>
+  </view>
+      <view class='list'>
+      <block wx:for="{{goodsList}}" wx:key="*this">
+        <view class='item'>
+          <image mode='aspectFill' bindtap="goGoodsDetail" data-index='{{index}}' class='photo' src='{{item.goodsLogoPath}}'></image>
+           <image wx:if='{{item.goodsVideoPath}}' class='play'  src='../../image/icons8_Play_Button_Circled.png'></image> 
+          <text class='title' bindtap="goGoodsDetail" data-index='{{index}}'>{{item.goodsTitle}}</text>
+          <view class='detail'>
+            <view class='colum'>
+              <text class='price'>¥{{item.tradePrice>=10000?item.tradePrice/10000+"万":item.tradePrice}}</text>
+              <text class='old_price'>¥{{item.resalePrice>=10000?item.resalePrice/10000+"万":item.resalePrice}}</text>
+            </view >
+            <view class='colum1'>
+              <view class='colum colum_heart' bindtap='collectionSelect' data-index='{{index}}'>
+              <image class='heart' src='../../image/icons8_Heart{{item.isCollect==1?"_1":""}}.png'></image>
+              <text>{{item.collectCount}}</text>
+            </view>
+            <view class='colum' >
+               <image class='resale' src='../../image/icons8_iOS_wecha.png'></image>
+              <text>{{item.resaleCount}}</text>
+              <button class='colum_contact' open-type='contact' hover-class='none' session-from='from_download'></button> 
+            </view>
+            </view>
+          </view>
+        </view>
+      </block>
+     </view>
+
+</view>
+
+<!--转售弹框  -->
+   <view class='resaleMongolia mask  {{showResaleMask==true?"active":""}}' catchtouchmove="prevented" bindtap='hidenResaleMask'>
+   <view class='resaleMongolia_content' catchtap='prevented'>
+    <image class='' src='../../image/resale.png'></image>
+    <button bindtap='hidenResaleMask' class='resale_button' open-type='contact' hover-class='none' session-from='from_download'></button>
+   </view>
+</view> 

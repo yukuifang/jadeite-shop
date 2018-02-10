@@ -1,0 +1,161 @@
+<view class="page"  wx:if='{{goodsData.goodsTitle}}'>
+      <scroll-view scroll-y="true" class='scroll' style='height:{{scrollHeight}}px'> 
+      <!--轮廓图  -->
+       <view class="banner" wx:if='{{goodsData.goodsPhotos}}'> 
+            <swiper class='banner_swiper'  indicator-dots="true"
+  autoplay="true" interval="{{4000}}" duration="{{400}}" circular="true"> 
+          <block wx:for="{{goodsData.goodsPhotos}}" wx:key="*this">
+              <swiper-item class='swiper-item'>
+                <image wx:if='{{index==0&&goodsData.goodsVideoPath.length}}'  class='play' src='../../image/icons8_Play_Button_Circled.png' bindtap='viedoPlay' data-index='{{index}}'></image>
+                    <image  class='banner_image' src="{{item}}" mode="widthFix" bindtap='viedoPlay' data-index='{{index}}'>
+                </image>  
+               </swiper-item>
+         </block> 
+      </swiper> 
+     </view>
+    <!--商品详情  -->
+     <view class='body'>
+        <view class='title_price_body'>
+          <text class='title'>{{goodsData.goodsTitle}}</text>
+          <!--建议零售价  -->
+          <view class='suggest_price_body'>
+            <text>建议零售价：</text>
+            <text class='suggest_price'>¥{{goodsData.resalePrice>10000?goodsData.resalePrice/10000+"万":goodsData.resalePrice}}</text>
+          </view>
+          <!--源头批发价  -->
+          <view class='source_price_body'>
+            <text>源头批发价：</text>
+            <text class='source_price'>¥{{goodsData.tradePrice>10000?goodsData.tradePrice/10000+"万":goodsData.tradePrice}}</text>
+          </view>
+          <!--下划线  -->
+          <view class='line'></view>
+
+          <!--购翠宝服务介绍  -->
+          <view class='service_introduce' bindtap='serviceIntroduce'>
+            <image class='left' src='../../image/icons8_jianding.png'></image>
+            <view class='service_describe'>
+              <text >购翠宝服务介绍</text>
+              <text class='describe'>保证天然翡翠A货，三天无条件退货，退货包来回邮费</text> 
+            </view>
+            <image class='arrow' src='../../image/icons8_Forward.png'></image>
+          </view>
+
+        </view>
+        <view class='space'></view>
+        <!--规格 详情 保障  -->
+        <view class='type_select'>
+              <view class='type_item' >
+                <text >详情</text>
+                <image src='../../image/icon-hengxian.png'></image>
+              </view>
+        </view>
+        <!--规格  -->
+        <view class='regular'>
+          <view class='regular_item'>
+            <text>货号：</text>
+            <text class='regular_item_right'>{{goodsData.goodsNo}}</text>
+          </view>
+          <view class='regular_item'>
+            <text>款式：</text>
+            <text class='regular_item_right'>{{goodsData.twoClassifyName}}</text>
+          </view>
+          <view class='regular_item'>
+            <text>尺寸：</text>
+            <text class='regular_item_right'>{{goodsData.size}}毫米</text>
+          </view>
+          <view class='regular_item' wx:if='{{goodsData.quankou.length}}'>
+            <text>圈口：</text>
+            <text class='regular_item_right'>{{goodsData.quankou}}毫米</text>
+          </view>
+          <view class='regular_item'>
+            <text>重量：</text>
+            <text class='regular_item_right'>{{goodsData.weight}}毫克</text>
+          </view>
+        </view>
+        <!--商品图  -->
+       <view class='goods_photo' wx:if='{{goodsData.goodsPhotos}}'>
+         <block wx:for="{{goodsData.goodsPhotos}}" wx:key="*this">
+           <image bindtap='previewImage' mode='aspectFill' class='goods_photo' src='{{item}}'></image>
+        </block>
+       </view>
+        <view class='space'></view>
+        <!--保障内容  -->
+          <view class='ensure'>
+            <image class='ensure_image' src='../../image/baozhang.png'></image>
+            <block wx:for="{{4}}" wx:key="*this">
+              <view class='ensure_item'>
+                <image src='../../image/{{ensure_icon[index]}}'></image>
+                <view class='ensure_item_right'>
+                  <text class='ensure_item_right_top'>{{ensure_title[index]}}</text>
+                  <text>{{ensure_describe[index]}}</text>
+                </view>
+              </view>
+            </block>
+          </view>
+          <!--保养护理  -->
+          <view class='maintain'>
+            <image class='maintain_image' src='../../image/baoyang.png'></image>
+            <block wx:for="{{3}}" wx:key="*this">
+              <view class='maintain_item'>
+                <view class='maintain_item_top'>
+                  <text class='maintain_item_top_num'>{{maintain_num[index]}}</text>
+                  <text>{{maintain_title[index]}}</text>
+                </view>
+                <view class='maintain_item_content'>
+                   <text >{{maintain_content[index]}}</text>
+                </view>
+              </view>
+            </block>
+          </view>
+          <!-- 鉴定证书 -->
+          <view class='certificate'>
+            <image class='certificate_image' src='../../image/zhengshu.png'></image>
+            <view class='certificate_content'>
+              <image src='{{goodsData.certImgs[0]}}'></image>
+              <image src='{{goodsData.certImgs[1]}}'></image>
+            </view>
+          </view>
+          <!--常见问题  -->
+          <view class='question'>
+            <image class='question_image' src='../../image/wenti.png'></image>
+            <block wx:for="{{6}}" wx:key="*this" >
+              <view class='question_item'>
+                <view class='question_title'>
+                  <view class='question_dot'></view>
+                  <text>{{question_title[index]}}</text>
+                </view>
+                <view class='question_content'>
+                  <text bindtap='callLine'>{{question_content[index]}}<text class='phone' wx:if='{{index == 5}}'>{{linePhone}}</text></text>
+                </view>
+              </view>
+            </block>
+          </view>
+     </view>
+     </scroll-view>  
+   <!--底部  -->
+    <view class='footer'>
+      <view class='footer_left'>
+        <view class='collection' bindtap='collectionSelect'>
+           <image wx:if='{{goodsData.isCollect==1}}' class='collection_image' src='../../image/icons8_Heart_1.png'></image> 
+           <image wx:else class='collection_image' src='../../image/icons8_Heart.png'></image>
+          <text>收藏{{goodsData.collectCount}}</text>
+        </view>
+        <view class='collection' bindtap='reSale'>
+         <image class='icon_resale' src='../../image/icons8_iOS_wecha.png'></image> 
+          <text>转售{{goodsData.resaleCount}}</text>
+        </view>    
+      </view>
+      <button class='contact' open-type='contact'>联系客服</button> 
+       <text bindtap="confirmationOrder" class='purchase' >立即购买</text>
+    </view>
+  </view>
+
+  
+
+   
+    
+
+    
+
+
+       

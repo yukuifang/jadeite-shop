@@ -1,0 +1,52 @@
+.space
+{
+  width: 100%;
+  height: 10px;
+  background: #eeeff3;
+}
+.section
+{
+  width: 100%;
+  padding: 30rpx;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid #eeeff3;
+}
+.section image
+{
+  width: 220rpx;
+  height: 220rpx;
+}
+.content
+{
+  display: flex;
+  flex-direction: column;
+  width: 430rpx;
+  margin-left: 20rpx;
+  font-size: 15px;
+  color: rgb(0, 0, 0);
+  justify-content: space-between;
+}
+.title
+{
+  overflow:hidden; 
+  text-overflow:ellipsis;
+  display:-webkit-box; 
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2; 
+}
+.time
+{
+  font-size: 11px;
+  color: rgb(153, 153, 153);
+}
+.detail
+{
+  Font-size: 13px;
+  color: rgb(85, 85, 85);
+  overflow:hidden; 
+  text-overflow:ellipsis;
+  display:-webkit-box; 
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2; 
+}

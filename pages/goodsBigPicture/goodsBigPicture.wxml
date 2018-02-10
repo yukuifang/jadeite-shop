@@ -1,0 +1,49 @@
+<view class="page" wx:if='{{goodsData.goodsTitle}}' >
+      <scroll-view scroll-y="true" class='scroll' style='height:{{scrollHeight}}px'> 
+       <view class="banner"> 
+            <swiper class='banner_swiper'  indicator-dots="true"
+  autoplay="true" interval="{{2000}}" duration="{{400}}" circular="true"> 
+          <block wx:for="{{goodsData.goodsPhotos}}" wx:key="*this">
+              <swiper-item  class='swiper-item'>
+               <image wx:if='{{index==0&&goodsData.goodsVideoPath.length}}'  class='play' src='../../image/icons8_Play_Button_Circled.png' bindtap='viedoPlay' data-index='{{index}}'></image>
+                 <image class='banner_image' src="{{item}}" mode="widthFix" bindtap='viedoPlay' data-index='{{index}}'>
+                 </image>
+               </swiper-item>
+         </block> 
+      </swiper> 
+     </view>
+     <view class='describle'>
+        <text bindtap="goGoodsDetail">{{goodsData.goodsTitle}}</text>
+        <view class='row'>
+            <view class='price_column'>
+               <text class='size'>尺寸：{{goodsData.size}}毫米</text>
+               <text class='size'>源头批发价：{{goodsData.resalePrice>=10000?goodsData.resalePrice/10000+"万":goodsData.resalePrice}}</text>
+            </view>
+            <view class='picture_row'>
+                <image src='../../image/icons8_jian.png' bindtap='serviceIntroduce'></image>
+                <!-- <image src='../../image/icons8_Downloading_Updates.png' bindtap='saveImage'></image> -->
+            </view>
+          
+        </view>
+     </view>
+     
+     </scroll-view>  
+
+    <view class='footer'>
+      <view>
+          <text class='price_title'>批发价：</text>
+          <text class='price'>{{goodsData.tradePrice>=10000?goodsData.tradePrice/10000+"万":goodsData.tradePrice}}</text>
+      </view>
+      <button class='contact' open-type='contact'>联系客服</button> 
+       <text bindtap="download" class='purchase' bindtap='confirmationOrder'>立即购买</text>
+    </view>
+    </view>
+
+
+   
+    
+
+    
+
+
+       
